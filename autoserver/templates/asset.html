@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>资产列表管理</h2>
+<table border="1px">
+    <thead id="thead"></thead>
+    <tbody id="tbody"></tbody>
+</table>
+</body>
+<script src="http://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="/static/js/nblist.js"></script>
+<script>
+      $.ajax({
+        type: 'get',
+        url: '/backend/ajax_asset',
+        success:function (args) {
+            console.log(args);
+            init_thead(args["table_config"]);
+            init_tbody(args["data_list"], args["table_config"])
+        }
+    });
+
+</script>
+</html>
